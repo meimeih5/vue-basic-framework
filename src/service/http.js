@@ -8,6 +8,7 @@
 
 import axios from 'axios';
 import ls from 'local-storage';
+import { $vuex } from '@/store';
 import { Toast } from 'vant';
 
 const baseURL = '/api/ezpic';
@@ -15,6 +16,8 @@ const baseURL = '/api/ezpic';
 const defaultOptions = {
   loading: true
 };
+
+const setLoading = value => $vuex('vuex_loading', value);
 
 const http = async (method, url, params, options) => {
   const { loading } = Object.assign({}, defaultOptions, options);
@@ -27,25 +30,33 @@ const http = async (method, url, params, options) => {
       loadingType: 'spinner'
     });
 
-  const res = await axios({
-    ...params,
-    method,
-    url,
-    baseURL,
-    headers: {
-      token: ls('token')
+  setLoading(true);
+
+  try {
+    const res = await axios({
+      ...params,
+      method,
+      url,
+      baseURL,
+      headers: {
+        token: ls('token')
+      }
+    });
+
+    const { code, message, result } = res.data;
+
+    if (code) {
+      throw new Error(message);
     }
-  });
 
-  const { code, message, result } = res.data;
-
-  if (code) {
+    Toast.clear();
+    return result;
+  } catch ({ message }) {
     Toast.fail(message);
     return Promise.reject(message);
+  } finally {
+    setLoading(false);
   }
-
-  Toast.clear();
-  return result;
 };
 
 const get = (url, params, options) => http('get', url, { params }, options);
