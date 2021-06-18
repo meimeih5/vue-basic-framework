@@ -12,7 +12,10 @@
 
 <script>
 export default {
-  routePath: '/'
+  routePath: '/',
+  created() {
+    this.$getGoodsDetail({ goodsId: 'c74bab3130f448a988d2f1f9b5fd0c23' });
+  }
 };
 </script>
 

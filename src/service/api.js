@@ -1,4 +1,5 @@
 import http from './http';
 
-export const login = () => http.get({ cmd: 'GetProductsInfo', qrc: 'N320210616010003' });
-export const getPolicy = () => http.get('/app/getPolicy');
+export const login = () => http.post('/app/appLogin?userPhone=13319109705&password=123456');
+
+export const getGoodsDetail = params => http.get('/app/getGoodsDetail', params);

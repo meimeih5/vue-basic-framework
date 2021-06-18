@@ -7,33 +7,49 @@
  */
 
 import axios from 'axios';
+import ls from 'local-storage';
 import { Toast } from 'vant';
 
 const baseURL = '/api/ezpic';
 
-const http = async (method, url, params) => {
-  const { data } = await axios({
+const defaultOptions = {
+  loading: true
+};
+
+const http = async (method, url, params, options) => {
+  const { loading } = Object.assign({}, defaultOptions, options);
+
+  loading &&
+    Toast.loading({
+      message: '加载中...',
+      duration: 0,
+      forbidClick: true,
+      loadingType: 'spinner'
+    });
+
+  const res = await axios({
     ...params,
     method,
     url,
     baseURL,
     headers: {
-      token: sessionStorage.getItem('token')
+      token: ls('token')
     }
   });
 
-  console.log(data, '---data---');
+  const { code, message, result } = res.data;
 
-  if (data.success) {
-    return data.data;
+  if (code) {
+    Toast.fail(message);
+    return Promise.reject(message);
   }
 
-  Toast.fail(data.msgtext);
-  return Promise.reject(data);
+  Toast.clear();
+  return result;
 };
 
-const get = (params, url) => http('get', url, { params });
-const post = (data, url) => http('post', url, { data });
+const get = (url, params, options) => http('get', url, { params }, options);
+const post = (url, data, options) => http('post', url, { data }, options);
 
 export default {
   get,
