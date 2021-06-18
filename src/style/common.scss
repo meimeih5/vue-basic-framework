@@ -1,0 +1,127 @@
+.v-relative,
+.v-rela {
+  position: relative;
+}
+
+.v-absolute,
+.v-abso {
+  position: absolute;
+}
+
+.v-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.v-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.v-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.v-col-center {
+  align-items: center;
+}
+
+.v-col-top {
+  align-items: flex-start;
+}
+
+.v-col-bottom {
+  align-items: flex-end;
+}
+
+.v-row-center {
+  justify-content: center;
+}
+
+.v-row-left {
+  justify-content: flex-start;
+}
+
+.v-row-right {
+  justify-content: flex-end;
+}
+
+.v-row-between {
+  justify-content: space-between;
+}
+
+.v-row-around {
+  justify-content: space-around;
+}
+
+.v-text-left {
+  text-align: left;
+}
+
+.v-text-center {
+  text-align: center;
+}
+
+.v-text-right {
+  text-align: right;
+}
+
+.v-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// 定义flex等分
+@for $i from 0 through 12 {
+  .v-flex-#{$i} {
+    flex: $i;
+  }
+}
+
+@for $i from 9 to 40 {
+  .v-font-#{$i} {
+    font-size: $i + px;
+  }
+}
+
+// 定义内外边距，历遍1-80
+@for $i from 0 through 80 {
+  // 只要双数和能被5除尽的数
+  @if $i % 2 == 0 or $i % 5 == 0 {
+    // 得出：u-margin-30或者u-m-30
+    .v-margin-#{$i},
+    .v-m-#{$i} {
+      margin: $i + px !important;
+    }
+
+    // 得出：u-padding-30或者u-p-30
+    .v-padding-#{$i},
+    .v-p-#{$i} {
+      padding: $i + px !important;
+    }
+
+    @each $short, $long in l left, t top, r right, b bottom {
+      // 缩写版，结果如： u-m-l-30
+      // 定义外边距
+      .v-m-#{$short}-#{$i} {
+        margin-#{$long}: $i + px !important;
+      }
+
+      // 定义内边距
+      .v-p-#{$short}-#{$i} {
+        padding-#{$long}: $i + px !important;
+      }
+
+      // 完整版，结果如：u-margin-left-30
+      // 定义外边距
+      .v-margin-#{$long}-#{$i} {
+        margin-#{$long}: $i + px !important;
+      }
+
+      // 定义内边距
+      .v-padding-#{$long}-#{$i} {
+        padding-#{$long}: $i + px !important;
+      }
+    }
+  }
+}
