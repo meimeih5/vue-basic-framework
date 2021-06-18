@@ -1,12 +1,10 @@
 import Vue from 'vue';
 import App from './App';
-import router from './router';
-import store from './store';
-import './plugins';
+import { store, router } from './plugins';
 import './service';
 import './components';
 import './utils';
-import './style/index.scss';
+import './styles/index.scss';
 
 new Vue({
   store,

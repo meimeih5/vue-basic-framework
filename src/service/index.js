@@ -13,5 +13,6 @@ import { addPrototypeToVue } from '@/utils';
 
 export * from './api';
 
+// 挂载api
 _.forEach(apis, (api, key) => addPrototypeToVue(key, api));
 addPrototypeToVue('http', http);

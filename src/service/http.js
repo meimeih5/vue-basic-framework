@@ -8,7 +8,7 @@
 
 import axios from 'axios';
 import ls from 'local-storage';
-import { $vuex } from '@/store';
+import { $vuex } from '@/plugins';
 import { Toast } from 'vant';
 
 const baseURL = '/api/ezpic';

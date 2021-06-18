@@ -14,8 +14,8 @@
 export default {
   routePath: '/',
   async created() {
-    const res = await this.$getGoodsDetail({ goodsId: 'c74bab3130f448a988d2f1f9b5fd0c23' });
-    console.log(res, '---res----');
+    // const res = await this.$getGoodsDetail({ goodsId: 'c74bab3130f448a988d2f1f9b5fd0c23' });
+    // console.log(res, '---res----');
   }
 };
 </script>

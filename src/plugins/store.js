@@ -59,5 +59,3 @@ const storeMixin = {
 };
 
 Vue.mixin(storeMixin);
-
-export default store;
