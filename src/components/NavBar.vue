@@ -6,15 +6,20 @@
  * @Blog   : http://g.huxiaodo.com
 -->
 <template>
-  <van-nav-bar :title="title" left-text="返回" left-arrow @click-left="onClickLeft" />
+  <van-nav-bar v-bind="{ ...$attrs, ...$props }" left-arrow @click-left="onClickLeft" />
 </template>
 
 <script>
 export default {
-  props: ['title'],
+  props: {
+    leftText: {
+      type: String,
+      default: '返回'
+    }
+  },
   methods: {
     onClickLeft() {
-      this.$router.back();
+      this.$listeners.clickBack ? this.$emit('clickBack') : this.$router.back();
     }
   }
 };
