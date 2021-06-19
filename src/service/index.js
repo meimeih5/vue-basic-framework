@@ -8,11 +8,13 @@
 
 import _ from 'lodash';
 import http from './http';
-import * as apis from './api';
-import { addPrototypeToVue } from '@/utils';
+import { parseContext, addPrototypeToVue } from '@/utils';
 
-export * from './api';
+const context = require.context('./apis', false, /\.js$/);
+const apis = parseContext(context);
 
 // 挂载api
-_.forEach(apis, (api, key) => addPrototypeToVue(key, api));
+_.forEach(apis, (value, key) => addPrototypeToVue(key, value));
 addPrototypeToVue('http', http);
+
+module.exports = apis;

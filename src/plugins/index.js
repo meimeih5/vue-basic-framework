@@ -6,7 +6,9 @@
  * @Blog   : http://g.huxiaodo.com
  */
 
-// 加载插件, 并导出
+import { parseContext } from '@/utils';
+
+// 加载插件
 const plugins = require.context('./', false, /^(?!\.\/index).*\.js$/);
 
-module.exports = plugins.keys().reduce((prev, key) => Object.assign(prev, plugins(key)), {});
+module.exports = parseContext(plugins);

@@ -1,4 +1,12 @@
-import http from './http';
+/*
+ * @Author : jaydon
+ * @Date   : 2021-06-19 18:46
+ * @WeChat : i-vshow
+ * @Email  : vshow@huxiaodo.com
+ * @Blog   : http://g.huxiaodo.com
+ */
+
+import http from '../http';
 
 export const login = () => http.post('/app/appLogin?userPhone=13319109705&password=123456');
 
