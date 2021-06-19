@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <v-nav-bar title="首页" @clickBack="onClickLeft"></v-nav-bar>
+  <v-nav-bar :title="$t('title')" @clickBack="onClickLeft"></v-nav-bar>
 </template>
 
 <script>

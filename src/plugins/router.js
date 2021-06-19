@@ -24,7 +24,7 @@ const routes = components.keys().map(key => {
   };
 });
 
-export const router = new VueRouter({
+const router = new VueRouter({
   base: '',
   routes
 });
@@ -41,3 +41,5 @@ router.beforeEach((to, from, next) => {
     replace: true
   });
 });
+
+export { router };

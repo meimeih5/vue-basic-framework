@@ -19,7 +19,9 @@ const saveStateKeys = ['vuex_common'];
 // 加上vuex_前缀，是防止变量名冲突，也让人一目了然
 const initialState = {
   vuex_loading: false,
-  vuex_common: {}
+  vuex_common: {
+    language: 'zh-CN'
+  }
 };
 
 const state = _.merge(initialState, ls('saveState'));
@@ -39,16 +41,16 @@ const setState = (state, { key, value }) => {
   }
 };
 
-export const store = new Vuex.Store({
+const store = new Vuex.Store({
   state,
   mutations: {
     setState
   }
 });
 
-export const $vuex = (key, value) => store.commit('setState', { key, value });
+const $vuex = (key, value) => store.commit('setState', { key, value });
 
-const storeMixin = {
+Vue.mixin({
   created() {
     this.$vuex = $vuex;
   },
@@ -56,6 +58,6 @@ const storeMixin = {
     // 将vuex的state中的所有变量，解构到全局混入的mixin中
     ...mapState(Object.keys(state))
   }
-};
+});
 
-Vue.mixin(storeMixin);
+export { state, store, $vuex };

@@ -1,3 +1,4 @@
+const path = require('path');
 const pxtrem = require('postcss-pxtrem');
 
 module.exports = {
@@ -28,6 +29,18 @@ module.exports = {
             minPixelValue: 1
           })
         ]
+      },
+      sass: {
+        prependData: `@import "@/styles/variables.scss";`
+      }
+    }
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@': path.join(__dirname, 'src'),
+        '@images': '@/assets/images',
+        '@locales': '@/assets/locales'
       }
     }
   }
