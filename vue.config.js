@@ -40,7 +40,8 @@ module.exports = {
       alias: {
         '@': path.join(__dirname, 'src'),
         '@images': '@/assets/images',
-        '@locales': '@/assets/locales'
+        '@locales': '@/assets/locales',
+        '@variables.scss': '@/styles/variables.scss'
       }
     }
   }
