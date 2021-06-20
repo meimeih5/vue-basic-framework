@@ -5,7 +5,9 @@
 1. component: 文件名作为组件名，使用时以 v- 开头
 
 ```js
-<v-nav-bar :title="$t('title')" @clickBack="onClickLeft"></v-nav-bar>
+<v-nav-bar :title="$t('title')" @clickBack="onClickBack"></v-nav-bar>
+
+<v-icon name="more"></v-icon>
 ```
 
 2. vant:
@@ -115,7 +117,7 @@ color: $black;
 
 ```js
 const Title = styled.div`
-  font-size: ${props => props.color};
+  color: ${props => props.color};
 `;
 
 <Title color="red"></Title>;
