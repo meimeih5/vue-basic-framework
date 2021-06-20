@@ -1,8 +1,9 @@
 {
-  "name": "vue-base",
-  "version": "0.1.0",
+  "name": "vue-basic-framework",
+  "version": "1.0.0",
   "private": true,
-  "author": "jaydon",
+  "description": "A simple and easy-to-use basic framework of vue",
+  "author": "jaydon<vshow@huxiaodo.com>",
   "license": "MIT",
   "scripts": {
     "start": "vue-cli-service serve",
@@ -16,7 +17,7 @@
     "local-storage": "^2.0.0",
     "moment": "^2.29.1",
     "normalize.css": "^8.0.1",
-    "qs": "^6.10.1",
+    "query-string": "^7.0.0",
     "styled-tools": "^1.7.2",
     "v-click-outside": "^3.1.2",
     "vant": "^2.6.1",

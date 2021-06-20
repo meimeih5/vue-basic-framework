@@ -6,7 +6,9 @@
  * @Blog   : http://g.huxiaodo.com
  */
 
-(function() {
+import qs from 'query-string';
+
+(function flexible() {
   const n = window,
     e = n.document,
     t = e.documentElement,
@@ -18,8 +20,9 @@
   e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener('DOMContentLoaded', a, !1));
 })();
 
-(function() {
-  if (process.env.NODE_ENV !== 'production') {
-    import('vconsole').then(Vconsole => new Vconsole.default());
+(function vconsole() {
+  const { debug } = qs.parse(location.href.split('?')[1]);
+  if (debug) {
+    import('vconsole').then(vconsole => new vconsole.default());
   }
 })();

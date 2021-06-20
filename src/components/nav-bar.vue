@@ -5,6 +5,7 @@
  * @Email  : vshow@huxiaodo.com
  * @Blog   : http://g.huxiaodo.com
 -->
+
 <template>
   <van-nav-bar v-bind="{ ...$attrs, ...$props }" left-arrow @click-left="onClickLeft">
     <template #right>

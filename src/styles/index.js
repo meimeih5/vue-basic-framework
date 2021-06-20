@@ -6,8 +6,8 @@
  * @Blog   : http://g.huxiaodo.com
  */
 
-import variables from './variables.scss';
 import { addPrototypeToVue } from '@/utils';
+import variables from './variables.scss';
 import './index.scss';
 
 // 挂载scss变量

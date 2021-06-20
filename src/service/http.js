@@ -61,8 +61,12 @@ const http = async (method, url, params, options) => {
 
 const get = (url, params, options) => http('get', url, { params }, options);
 const post = (url, data, options) => http('post', url, { data }, options);
+const put = (url, data, options) => http('put', url, { data }, options);
+const remove = (url, data, options) => http('delete', url, { data }, options);
 
 export default {
   get,
-  post
+  post,
+  put,
+  remove
 };
