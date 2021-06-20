@@ -7,7 +7,10 @@
 -->
 
 <template>
-  <v-nav-bar :title="$t('title')" @clickBack="onClickLeft"></v-nav-bar>
+  <div>
+    <v-nav-bar :title="$t('title')" @clickBack="onClickLeft"></v-nav-bar>
+    <v-icon name="more"></v-icon>
+  </div>
 </template>
 
 <script>

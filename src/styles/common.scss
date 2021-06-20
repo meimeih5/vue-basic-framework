@@ -79,6 +79,10 @@
   flex-direction: column;
 }
 
+.v-hide {
+  display: none;
+}
+
 // 定义flex等分
 @for $i from 0 through 12 {
   .v-flex-#{$i} {
