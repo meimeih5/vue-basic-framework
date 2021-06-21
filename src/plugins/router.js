@@ -8,10 +8,9 @@
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueNavigation from 'vue-navigation';
 import ls from 'local-storage';
 import _ from 'lodash';
-
-Vue.use(VueRouter);
 
 const whiteList = ['/login'];
 const defaultTitle = document.title;
@@ -19,14 +18,14 @@ const defaultTitle = document.title;
 const components = require.context('@/views/', true, /index\.vue$/);
 
 const routes = components.keys().map(key => {
-  const { name, routePath, meta } = components(key).default;
+  const { name, meta: { path: alias, ...rest } = {} } = components(key).default;
   const fileName = key.replace(/\.\//g, '');
   const path = _.kebabCase(fileName.replace(/index\.vue/gi, ''));
 
   return {
     name,
-    meta,
-    alias: routePath,
+    alias,
+    meta: rest,
     path: '/' + path,
     component: () => import(`@/views/${fileName}`)
   };
@@ -34,7 +33,7 @@ const routes = components.keys().map(key => {
 
 const router = new VueRouter({
   base: '',
-  routes
+  routes: routes.concat({ path: '*', redirect: '/' })
 });
 
 router.beforeEach((to, from, next) => {
@@ -49,5 +48,8 @@ router.beforeEach((to, from, next) => {
     replace: true
   });
 });
+
+Vue.use(VueRouter);
+Vue.use(VueNavigation, { router });
 
 export { router };

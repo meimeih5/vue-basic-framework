@@ -8,13 +8,23 @@
 
 <template>
   <div id="app">
-    <router-view />
+    <navigation>
+      <transition :name="transitionName">
+        <router-view />
+      </transition>
+    </navigation>
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {};
+    return {
+      transitionName: ''
+    };
+  },
+  created() {
+    this.$navigation.on('forward', () => (this.transitionName = 'slide-left'));
+    this.$navigation.on('back', () => (this.transitionName = 'slide-right'));
   }
 };
 </script>

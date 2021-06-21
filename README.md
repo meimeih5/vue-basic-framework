@@ -42,11 +42,11 @@ this.$vuex('vuex_loading', true);
 
 // 组件中自定义参数
 export default {
-  routePath: '自定义页面路径',
   meta: {
+    path: '自定义页面路径',
     title: '页面title',
     ...
-  }
+  },
 }
 ```
 
