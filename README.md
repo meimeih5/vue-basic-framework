@@ -45,6 +45,7 @@ export default {
   meta: {
     path: '自定义页面路径',
     title: '页面title',
+    transition: true, // 默认为true
     ...
   },
 }
