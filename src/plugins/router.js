@@ -58,7 +58,7 @@ router.beforeEach((to, from, next) => {
 Vue.use(VueRouter);
 Vue.use(VueNavigation, { router });
 
-// 解决重复跳转路由报错
+// 解决重复跳转路由报错问题
 const originalPush = VueRouter.prototype.push;
 VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err);
