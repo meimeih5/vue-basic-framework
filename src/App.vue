@@ -8,24 +8,17 @@
 
 <template>
   <div id="app">
-    <navigation>
-      <transition :name="transitionName">
-        <router-view />
-      </transition>
-    </navigation>
+    <v-transition-router v-if="$route.meta.transition" />
+    <router-view v-else />
   </div>
 </template>
+
 <script>
 export default {
   data() {
-    return {
-      transitionName: ''
-    };
-  },
-  created() {
-    this.$navigation.on('forward', () => (this.transitionName = 'slide-left'));
-    this.$navigation.on('back', () => (this.transitionName = 'slide-right'));
+    return {};
   }
 };
 </script>
+
 <style lang="scss"></style>

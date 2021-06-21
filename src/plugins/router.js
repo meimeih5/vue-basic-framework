@@ -12,21 +12,25 @@ import VueNavigation from 'vue-navigation';
 import ls from 'local-storage';
 import _ from 'lodash';
 
+// 不需要登录的页面
 const whiteList = ['/login'];
-const defaultTitle = document.title;
 
+const defaultMeta = {
+  transition: true
+};
+
+// 导入页面
 const components = require.context('@/views/', true, /index\.vue$/);
-
 const routes = components.keys().map(key => {
-  const { name, meta: { path: alias, ...rest } = {} } = components(key).default;
+  const { name, meta } = components(key).default;
+  const { path, ...rest } = _.merge({}, defaultMeta, meta);
   const fileName = key.replace(/\.\//g, '');
-  const path = _.kebabCase(fileName.replace(/index\.vue/gi, ''));
 
   return {
     name,
-    alias,
+    alias: path,
     meta: rest,
-    path: '/' + path,
+    path: '/' + _.kebabCase(fileName.replace(/index\.vue/gi, '')),
     component: () => import(`@/views/${fileName}`)
   };
 });
@@ -36,6 +40,8 @@ const router = new VueRouter({
   routes: routes.concat({ path: '*', redirect: '/' })
 });
 
+// 路由守卫
+const defaultTitle = document.title;
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title || defaultTitle;
 
@@ -51,5 +57,11 @@ router.beforeEach((to, from, next) => {
 
 Vue.use(VueRouter);
 Vue.use(VueNavigation, { router });
+
+// 解决重复跳转路由报错
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err);
+};
 
 export { router };
