@@ -44,6 +44,7 @@
     "lint-staged": "^11.0.0",
     "node-sass": "^4.12.0",
     "postcss-pxtrem": "^3.0.3",
+    "prettier": "^2.3.1",
     "sass-loader": "^8.0.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",

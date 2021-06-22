@@ -23,14 +23,15 @@ const defaultMeta = {
 const components = require.context('@/views/', true, /index\.vue$/);
 const routes = components.keys().map(key => {
   const { name, meta } = components(key).default;
-  const { path, ...rest } = _.merge({}, defaultMeta, meta);
+  const { path: alias, ...rest } = _.merge({}, defaultMeta, meta);
   const fileName = key.replace(/\.\//g, '');
+  const path = _.kebabCase(fileName.replace(/index\.vue/gi, ''));
 
   return {
-    name,
-    alias: path,
+    alias,
     meta: rest,
-    path: '/' + _.kebabCase(fileName.replace(/index\.vue/gi, '')),
+    name: name || path,
+    path: '/' + path,
     component: () => import(`@/views/${fileName}`)
   };
 });

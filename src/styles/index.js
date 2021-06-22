@@ -11,4 +11,4 @@ import variables from './variables.scss';
 import './index.scss';
 
 // 挂载scss变量
-addPrototypeToVue('theme', variables);
+addPrototypeToVue('themes', variables);

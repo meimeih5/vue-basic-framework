@@ -102,7 +102,7 @@ this.$customUtil();
 
 ```js
 // js
-this.$theme.black;
+this.$themes.black;
 
 // scss
 color: $black;
