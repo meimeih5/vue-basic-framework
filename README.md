@@ -90,13 +90,13 @@ this.$customUtil();
 7. scss: 内置 class，变量注入
 
 ```css
-.v-rela
-.v-flex
-.v-flex-1
-.v-text-left
-.v-font-10
-.v-m-10
-.v-p-10
+.u-rela
+.u-flex
+.u-flex-1
+.u-text-left
+.u-font-10
+.u-m-10
+.u-p-10
 ...
 ```
 
