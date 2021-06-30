@@ -2,7 +2,7 @@
  * @Author : jaydon
  * @Date   : 2021-06-17 10:55
  * @WeChat : i-vshow
- * @Email  : vshow@huxiaodo.com
+ * @Email  : vshow@dooomi.com
  * @Blog   : http://g.huxiaodo.com
  */
 

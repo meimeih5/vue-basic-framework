@@ -2,7 +2,7 @@
  * @Author : jaydon
  * @Date   : 2020-10-29 11:16
  * @WeChat : i-vshow
- * @Email  : vshow@huxiaodo.com
+ * @Email  : vshow@dooomi.com
  * @Blog   : http://g.huxiaodo.com
  */
 

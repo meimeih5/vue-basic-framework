@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "A simple and easy-to-use basic framework of vue",
-  "author": "jaydon<vshow@huxiaodo.com>",
+  "author": "jaydon<vshow@dooomi.com>",
   "license": "MIT",
   "scripts": {
     "start": "vue-cli-service serve",
