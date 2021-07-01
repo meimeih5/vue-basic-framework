@@ -39,7 +39,7 @@ module.exports = {
         ]
       },
       sass: {
-        prependData: `@import "@/styles/variables.scss";`
+        prependData: `@import "@/styles/variables.scss", "@/styles/mixin.scss";`
       }
     }
   },
