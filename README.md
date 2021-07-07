@@ -2,7 +2,7 @@
 
 <hr/>
 
-1. component: 文件名作为组件名，使用时以 v- 开头
+1. component: 文件名作为组件名，使用时以 v- 开头，支持 jsx 写法
 
 ```js
 <v-nav-bar :title="$t('title')" @clickBack="onClickBack"></v-nav-bar>
@@ -90,14 +90,7 @@ this.$customUtil();
 7. scss: 内置 class，变量注入
 
 ```css
-.u-rela
-.u-flex
-.u-flex-1
-.u-text-left
-.u-font-10
-.u-m-10
-.u-p-10
-...
+.u-rela .u-flex .u-flex-1 .u-text-left .u-font-10 .u-m-10 .u-p-10 ...;
 ```
 
 ```js
@@ -121,7 +114,10 @@ const Title = styled.div`
   color: ${props => props.color};
 `;
 
-<Title color="red"></Title>;
+<Title color="red">Title</Title>;
+
+// 全局注册后
+<v-title color="red">Title</v-title>;
 ```
 
 10. debug 模式:

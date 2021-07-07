@@ -14,11 +14,11 @@ const defaultProps = {
 };
 
 // 注册全局组件
-const components = require.context('./', true, /index\.vue$/);
+const components = require.context('./', true, /index\.(vue|js)$/);
 
-components.keys().forEach(key => {
-  const component = components(key).default;
-  const name = component.name || _.kebabCase(key.replace(/\.\/|index\.vue/g, ''));
-
-  Vue.component(`v-${name}`, _.merge({}, defaultProps, component));
-});
+components.keys().forEach(key =>
+  _.forEach(components(key), (component, k) => {
+    const name = k === 'default' ? component.name || _.kebabCase(key.replace(/\.\/|index\.(vue|js)/g, '')) : k;
+    Vue.component(`v-${name.toLowerCase()}`, _.merge({}, defaultProps, component));
+  })
+);

@@ -7,7 +7,7 @@
 -->
 
 <template>
-  <v-nav-bar :title="$t('title')" @clickBack="onClickLeft"></v-nav-bar>
+  <v-nav-bar :title="$t('首页')" @clickBack="onClickLeft"></v-nav-bar>
 </template>
 
 <script>
@@ -27,5 +27,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

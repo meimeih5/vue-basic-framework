@@ -6,12 +6,15 @@
  * @Blog   : http://g.huxiaodo.com
 -->
 
-<template>
-  <v-nav-bar title="首页列表"></v-nav-bar>
-</template>
-
 <script>
-export default {};
+export default {
+  render() {
+    return (
+      <div>
+        <v-nav-bar title="首页列表"></v-nav-bar>
+        <v-title color="red">Title</v-title>
+      </div>
+    );
+  }
+};
 </script>
-
-<style lang="scss" scoped></style>
