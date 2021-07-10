@@ -10,14 +10,14 @@
 <v-icon name="more"></v-icon>
 ```
 
-2. vant:
+2. ant-design-vue:
 
 ```js
 // 组件
-<van-button type="primary">主要按钮</van-button>;
+<a-button type="primary">主要按钮</a-button>;
 
 // api
-this.$toast('提示文案');
+this.$message('提示文案');
 
 ...
 ```
@@ -30,6 +30,9 @@ this.vuex_loading;
 
 // 修改
 this.$vuex('vuex_loading', true);
+
+// doui-vue
+vuex.update('vuex_loading', true);
 ```
 
 4. router: `页面必须为 index.vue`
@@ -76,10 +79,9 @@ this.$event.$on();
 this.$event.$emit();
 
 // lodash
-this.$map();
-this.$find();
-this.$cloneDeep();
-this.$$set();
+this.$d.map();
+this.$d.find();
+this.$d.cloneDeep();
 
 // 自定义
 this.$customUtil();
@@ -90,7 +92,7 @@ this.$customUtil();
 7. scss: 内置 class，变量注入
 
 ```css
-.u-rela .u-flex .u-flex-1 .u-text-left .u-font-10 .u-m-10 .u-p-10 ...;
+.d-rela .d-flex .d-flex-1 .d-text-left .d-font-10 .d-m-10 .d-p-10 ...;
 ```
 
 ```js
@@ -118,10 +120,4 @@ const Title = styled.div`
 
 // 全局注册后
 <v-title color="red">Title</v-title>;
-```
-
-10. debug 模式:
-
-```
-http://localhost:8080/?debug=true
 ```

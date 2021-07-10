@@ -8,15 +8,19 @@
 
 import Vue from 'vue';
 import App from './App';
-import { store, router, i18n } from './plugins';
+import Doui, { vuex } from 'doui-vue';
+import { router, createI18n } from './plugins';
+import { VUEX } from './common';
 import './components';
 import './service';
 import './utils';
 import './styles';
 
+Vue.use(Doui, { vuex: VUEX });
+
 new Vue({
-  store,
   router,
-  i18n,
+  store: vuex.store,
+  i18n: createI18n(vuex.state),
   render: h => h(App)
 }).$mount('#app');

@@ -5,3 +5,13 @@
  * @Email  : vshow@dooomi.com
  * @Blog   : http://g.huxiaodo.com
  */
+
+export const VUEX = {
+  saveKeys: ['vuex_common'],
+  initialState: {
+    vuex_loading: false,
+    vuex_common: {
+      language: 'zh-CN'
+    }
+  }
+};

@@ -8,8 +8,8 @@
 
 import axios from 'axios';
 import ls from 'local-storage';
-import { $vuex } from '@/plugins';
-import { Toast } from 'vant';
+import { vuex } from 'doui-vue';
+import { message } from 'ant-design-vue';
 
 const baseURL = '/api/ezpic';
 
@@ -17,24 +17,17 @@ const defaultOptions = {
   loading: true
 };
 
-const setLoading = value => $vuex('vuex_loading', value);
+const setLoading = value => vuex.update('vuex_loading', value);
 
-const http = async (method, url, params, options) => {
+const http = async (method, url, data, options) => {
   const { loading } = Object.assign({}, defaultOptions, options);
-
-  loading &&
-    Toast.loading({
-      message: '加载中...',
-      duration: 0,
-      forbidClick: true,
-      loadingType: 'spinner'
-    });
+  const closeLoading = loading && message.loading('请求中...', 0);
 
   setLoading(true);
 
   try {
     const res = await axios({
-      ...params,
+      [method === 'get' ? 'params' : 'data']: data,
       method,
       url,
       baseURL,
@@ -49,20 +42,20 @@ const http = async (method, url, params, options) => {
       throw new Error(message);
     }
 
-    Toast.clear();
     return result;
-  } catch ({ message }) {
-    Toast.fail(message);
-    return Promise.reject(message);
+  } catch (err) {
+    message.error(err.message, 2);
+    return Promise.reject(err.message);
   } finally {
+    closeLoading && closeLoading();
     setLoading(false);
   }
 };
 
-const get = (url, params, options) => http('get', url, { params }, options);
-const post = (url, data, options) => http('post', url, { data }, options);
-const put = (url, data, options) => http('put', url, { data }, options);
-const remove = (url, data, options) => http('delete', url, { data }, options);
+const get = (...rest) => http('get', ...rest);
+const post = (...rest) => http('post', ...rest);
+const put = (...rest) => http('put', ...rest);
+const remove = (...rest) => http('remove', ...rest);
 
 export default {
   get,

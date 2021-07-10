@@ -5,8 +5,3 @@
  * @Email  : vshow@dooomi.com
  * @Blog   : http://g.huxiaodo.com
  */
-
-import Vue from 'vue';
-import clickOutside from 'v-click-outside';
-
-Vue.use(clickOutside);

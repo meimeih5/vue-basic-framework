@@ -8,7 +8,6 @@
 
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
-import { state } from './store';
 
 Vue.use(VueI18n);
 
@@ -20,9 +19,10 @@ const messages = context.keys().reduce((prev, key) => {
   return prev;
 }, {});
 
-const i18n = new VueI18n({
-  locale: state.vuex_common.language,
-  messages
-});
+const createI18n = state =>
+  new VueI18n({
+    locale: state.vuex_common.language,
+    messages
+  });
 
-export { i18n };
+export { createI18n };

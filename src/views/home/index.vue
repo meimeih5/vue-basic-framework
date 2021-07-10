@@ -7,7 +7,9 @@
 -->
 
 <template>
-  <v-nav-bar :title="$t('首页')" @clickBack="onClickLeft"></v-nav-bar>
+  <d-container>
+    <router-link to="home-list">{{ $t('首页') }}</router-link>
+  </d-container>
 </template>
 
 <script>
@@ -17,13 +19,7 @@ export default {
     title: '首页'
   },
   async created() {
-    // const res = await this.$getGoodsDetail({ goodsId: 'c74bab3130f448a988d2f1f9b5fd0c23' });
-    // console.log(res, '---res----');
-  },
-  methods: {
-    onClickLeft() {
-      console.log('clickBack');
-    }
+    this.$getGoodsDetail({ goodsId: 'c74bab3130f448a988d2f1f9b5fd0c23' });
   }
 };
 </script>

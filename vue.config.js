@@ -7,7 +7,6 @@
  */
 
 const path = require('path');
-const pxtrem = require('postcss-pxtrem');
 
 module.exports = {
   publicPath: '',
@@ -18,7 +17,7 @@ module.exports = {
     https: false,
     proxy: {
       '/api': {
-        target: 'http://ifigure.natapp1.cc',
+        target: 'http://www.ifigure.cn',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
@@ -30,13 +29,7 @@ module.exports = {
   css: {
     loaderOptions: {
       postcss: {
-        plugins: [
-          pxtrem({
-            viewportWidth: 375,
-            unitPrecision: 2,
-            minPixelValue: 1
-          })
-        ]
+        plugins: []
       },
       sass: {
         prependData: `@import "@/styles/variables.scss", "@/styles/mixin.scss";`

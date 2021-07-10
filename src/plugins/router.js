@@ -8,16 +8,13 @@
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueNavigation from 'vue-navigation';
 import ls from 'local-storage';
 import _ from 'lodash';
 
 // 不需要登录的页面
 const whiteList = ['/login'];
 
-const defaultMeta = {
-  transition: true
-};
+const defaultMeta = {};
 
 // 导入页面
 const components = require.context('@/views/', true, /index\.vue$/);
@@ -57,7 +54,6 @@ router.beforeEach((to, from, next) => {
 });
 
 Vue.use(VueRouter);
-Vue.use(VueNavigation, { router });
 
 // 解决重复跳转路由报错问题
 const originalPush = VueRouter.prototype.push;

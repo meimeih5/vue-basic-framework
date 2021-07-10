@@ -9,7 +9,11 @@
 <script>
 export default {
   render() {
-    return <div id="app">{this.$route.meta.transition ? <v-transition-router /> : <router-view />}</div>;
+    return (
+      <div id="app">
+        <router-view />
+      </div>
+    );
   }
 };
 </script>
