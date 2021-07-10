@@ -19,7 +19,7 @@ const defaultOptions = {
 
 const setLoading = value => $vuex('vuex_loading', value);
 
-const http = async (method, url, params, options) => {
+const http = async (method, url, data, options) => {
   const { loading } = Object.assign({}, defaultOptions, options);
 
   loading &&
@@ -34,7 +34,7 @@ const http = async (method, url, params, options) => {
 
   try {
     const res = await axios({
-      ...params,
+      [method === 'get' ? 'params' : 'data']: data,
       method,
       url,
       baseURL,
@@ -59,10 +59,10 @@ const http = async (method, url, params, options) => {
   }
 };
 
-const get = (url, params, options) => http('get', url, { params }, options);
-const post = (url, data, options) => http('post', url, { data }, options);
-const put = (url, data, options) => http('put', url, { data }, options);
-const remove = (url, data, options) => http('delete', url, { data }, options);
+const get = (...rest) => http('get', ...rest);
+const post = (...rest) => http('post', ...rest);
+const put = (...rest) => http('put', ...rest);
+const remove = (...rest) => http('remove', ...rest);
 
 export default {
   get,
