@@ -3,7 +3,7 @@
  * @Date   : 2020-10-29 11:16
  * @WeChat : i-vshow
  * @Email  : vshow@dooomi.com
- * @Blog   : http://g.huxiaodo.com
+ * @Blog   : http://dooomi.com
  */
 
 import axios from 'axios';

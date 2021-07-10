@@ -3,15 +3,13 @@
  * @Date   : 2021-05-13 22:29
  * @WeChat : i-vshow
  * @Email  : vshow@dooomi.com
- * @Blog   : http://g.huxiaodo.com
+ * @Blog   : http://dooomi.com
 -->
 
 <template>
   <div class="language-switcher">
     <van-action-sheet v-model="show" cancel-text="取消" :actions="languages" @select="handleSwitch" />
-    <div class="language-text" @click="show = true">
-      切换语言
-    </div>
+    <div class="language-text" @click="show = true">切换语言</div>
   </div>
 </template>
 
@@ -55,5 +53,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>
