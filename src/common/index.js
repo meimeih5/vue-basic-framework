@@ -6,7 +6,7 @@
  * @Blog   : http://dooomi.com
  */
 
-export const VUEX = {
+export const vuexConfig = {
   saveKeys: ['vuex_common'],
   initialState: {
     vuex_loading: false,

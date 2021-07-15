@@ -10,13 +10,13 @@ import Vue from 'vue';
 import App from './App';
 import Doui, { vuex } from 'doui-vue';
 import { router, createI18n } from './plugins';
-import { VUEX } from './common';
+import { vuexConfig } from './common';
 import './components';
 import './service';
 import './utils';
 import './styles';
 
-Vue.use(Doui, { vuex: VUEX });
+Vue.use(Doui, { vuex: vuexConfig });
 
 new Vue({
   router,
