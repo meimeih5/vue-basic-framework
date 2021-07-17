@@ -32,7 +32,7 @@ module.exports = {
         plugins: []
       },
       sass: {
-        prependData: `@import "@/styles/variables.scss", "@/styles/mixin.scss";`
+        prependData: `@import "@/styles/variables.scss", "doui-vue/dist/mixin.scss";`
       }
     }
   },

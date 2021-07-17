@@ -1,44 +1,23 @@
 /*
  * @Author : jaydon
- * @Date   : 2020-09-26 12:09
+ * @Date   : 2021-07-14 23:41
  * @WeChat : i-vshow
  * @Email  : vshow@dooomi.com
  * @Blog   : http://dooomi.com
  */
 
-import Vue from 'vue';
-import VueRouter from 'vue-router';
 import ls from 'local-storage';
-import _ from 'lodash';
+import { Router } from 'doui-vue';
+
+const router = new Router({
+  base: '',
+  defaultMeta: {},
+  components: require.context('@/views/', true, /index\.vue$/),
+  lazyLoad: filePath => import(`@/views/${filePath}`)
+});
 
 // 不需要登录的页面
 const whiteList = ['/login'];
-
-const defaultMeta = {};
-
-// 导入页面
-const components = require.context('@/views/', true, /index\.vue$/);
-const routes = components.keys().map(key => {
-  const { name, meta } = components(key).default;
-  const { path: alias, ...rest } = _.merge({}, defaultMeta, meta);
-  const fileName = key.replace(/\.\//g, '');
-  const path = _.kebabCase(fileName.replace(/index\.vue/gi, ''));
-
-  return {
-    alias,
-    meta: rest,
-    name: name || path,
-    path: '/' + path,
-    component: () => import(`@/views/${fileName}`)
-  };
-});
-
-const router = new VueRouter({
-  base: '',
-  routes: routes.concat({ path: '*', redirect: '/' })
-});
-
-// 路由守卫
 const defaultTitle = document.title;
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title || defaultTitle;
@@ -52,13 +31,5 @@ router.beforeEach((to, from, next) => {
     replace: true
   });
 });
-
-Vue.use(VueRouter);
-
-// 解决重复跳转路由报错问题
-const originalPush = VueRouter.prototype.push;
-VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err);
-};
 
 export { router };

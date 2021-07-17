@@ -8,7 +8,7 @@
 
 import Vue from 'vue';
 import App from './App';
-import Doui, { vuex } from 'doui-vue';
+import Doui, { Vuex } from 'doui-vue';
 import { router, createI18n } from './plugins';
 import { vuexConfig } from './common';
 import './components';
@@ -16,7 +16,9 @@ import './service';
 import './utils';
 import './styles';
 
-Vue.use(Doui, { vuex: vuexConfig });
+Vue.use(Doui);
+
+const vuex = new Vuex(vuexConfig);
 
 new Vue({
   router,

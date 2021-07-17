@@ -34,7 +34,7 @@ export default {
       console.log('刷新');
     },
     openModal({ title, onOk, value }) {
-      this.$openDrawer({
+      this.$openModal({
         title,
         content: <v-form ref="form" value={value} />,
         onOk: () => this.$refs.form.submit().then(onOk).then(this.refresh)

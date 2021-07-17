@@ -10,10 +10,10 @@
 export default {
   render() {
     return (
-      <div>
+      <router-link to="/">
         <div title="首页列表"></div>
         <v-title color="red">Title</v-title>
-      </div>
+      </router-link>
     );
   }
 };
