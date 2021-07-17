@@ -8,7 +8,7 @@
 
 <template>
   <div>
-    <d-button @click="handleAdd" :loading="vuex_loading">新增</d-button>
+    <d-button @click="handleAdd">新增</d-button>
     <d-button @click="handleEdit">编辑</d-button>
   </div>
 </template>
@@ -34,9 +34,9 @@ export default {
       console.log('刷新');
     },
     openModal({ title, onOk, value }) {
-      this.$openModal({
+      this.$openDrawer({
         title,
-        content: <d-form ref="form" value={value} />,
+        content: <v-form ref="form" value={value} />,
         onOk: () => this.$refs.form.submit().then(onOk).then(this.refresh)
       });
     },
