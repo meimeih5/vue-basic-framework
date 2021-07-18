@@ -11,7 +11,7 @@ import { Router } from 'doui-vue';
 
 const router = new Router({
   base: '',
-  defaultMeta: {},
+  meta: {},
   components: require.context('@/views/', true, /index\.vue$/),
   lazyLoad: filePath => import(`@/views/${filePath}`)
 });

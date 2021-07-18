@@ -8,7 +8,7 @@
 
 export const vuexConfig = {
   saveKeys: ['vuex_common'],
-  initialState: {
+  state: {
     vuex_loading: false,
     vuex_common: {
       language: 'zh-CN'

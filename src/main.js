@@ -18,11 +18,11 @@ import './styles';
 
 Vue.use(Doui);
 
-const vuex = new Vuex(vuexConfig);
+const { store } = new Vuex(vuexConfig);
 
 new Vue({
   router,
-  store: vuex.store,
-  i18n: createI18n(vuex.state),
+  store,
+  i18n: createI18n(store.state),
   render: h => h(App)
 }).$mount('#app');
