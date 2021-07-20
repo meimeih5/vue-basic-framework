@@ -15,7 +15,7 @@ export default {
   async created() {
     const token = await this.$login();
     this.$ls('token', token);
-    this.$router.push('/home');
+    this.$router.push('/');
   }
 };
 </script>

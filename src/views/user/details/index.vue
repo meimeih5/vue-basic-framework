@@ -11,8 +11,7 @@ export default {
   render() {
     return (
       <router-link to="/">
-        <div title="首页列表"></div>
-        <v-title color="red">Title</v-title>
+        <div>user details</div>
       </router-link>
     );
   }

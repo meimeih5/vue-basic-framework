@@ -6,14 +6,34 @@
  * @Blog   : http://dooomi.com
  */
 
+import Vue from 'vue';
 import ls from 'local-storage';
-import { Router } from 'doui-vue';
+import VueRouter from 'vue-router';
 
-const router = new Router({
-  base: '',
-  meta: {},
-  components: require.context('@/views/', true, /index\.vue$/),
-  lazyLoad: filePath => import(`@/views/${filePath}`)
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  routes: [
+    {
+      path: '/',
+      component: () => import('@/views/home'),
+      redirect: '/user',
+      children: [
+        {
+          path: 'user',
+          component: () => import('@/views/user')
+        },
+        {
+          path: 'user-details',
+          component: () => import('@/views/user/details')
+        }
+      ]
+    },
+    {
+      path: '/login',
+      component: () => import('@/views/login')
+    }
+  ]
 });
 
 // 不需要登录的页面
