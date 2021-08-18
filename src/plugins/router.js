@@ -17,9 +17,9 @@ const router = new VueRouter({
     {
       path: '/',
       component: () => import('@/views/home'),
-      redirect: '/user',
       children: [
         {
+          alias: '',
           path: 'user',
           component: () => import('@/views/user')
         },
