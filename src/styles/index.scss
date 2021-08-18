@@ -8,6 +8,39 @@
 
 @import './iconfont.css';
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+/**  滚动条设置  **/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+  background-color: transparent;
+  opacity: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4f869e;
+  -webkit-border-radius: 8px;
+  border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+
 image {
   display: inline-block;
 }

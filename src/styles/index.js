@@ -8,7 +8,6 @@
 
 import { addPrototypeToVue } from '@/utils';
 import variables from './variables.scss';
-import 'doui-vue/dist/index.css';
 import './index.scss';
 
 // 挂载scss变量

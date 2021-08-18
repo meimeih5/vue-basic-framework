@@ -7,16 +7,12 @@
 -->
 
 <script>
-import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
-
 export default {
   render() {
     return (
-      <a-locale-provider locale={zhCN}>
-        <div id="app">
-          <router-view />
-        </div>
-      </a-locale-provider>
+      <div id="app">
+        <router-view />
+      </div>
     );
   }
 };

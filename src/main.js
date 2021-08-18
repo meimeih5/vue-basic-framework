@@ -8,21 +8,19 @@
 
 import Vue from 'vue';
 import App from './App';
-import Doui, { Vuex } from 'doui-vue';
-import { router, createI18n } from './plugins';
-import { vuexConfig } from './common';
-import './components';
-import './service';
-import './utils';
+import { router } from './plugins';
+import Element from 'element-ui';
+import SimpleFlowChart from 'simple-flow-chart';
+import clickOutside from 'v-click-outside';
+import 'simple-flow-chart/lib/index.css';
+import 'element-ui/lib/theme-chalk/index.css';
 import './styles';
 
-Vue.use(Doui);
-
-const { store } = new Vuex(vuexConfig);
+Vue.use(SimpleFlowChart);
+Vue.use(Element);
+Vue.use(clickOutside);
 
 new Vue({
   router,
-  store,
-  i18n: createI18n(store.state),
   render: h => h(App)
 }).$mount('#app');
