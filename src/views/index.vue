@@ -1,11 +1,8 @@
 <!--
- * @Author : jaydon
- * @Date   : 2021-08-18 19:11
- * @WeChat : i-vshow
- * @Email  : vshow@dooomi.com
- * @Blog   : http://dooomi.com
+ * @Author : zhangmm
+ * @LastEditors: zhangmm
+ * @Date   : 2021-08-19 08:58
 -->
-
 <template>
   <div style="height: 100%; width: 100%;">
     <div class="super-flow-demo1">
